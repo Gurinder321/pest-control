@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caldwell Pest Control — Vancouver, BC</title>
+  <meta name="description" content="Professional pest control services in Vancouver, BC. Rodent removal, insect control, and prevention programs for homes and businesses." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bone: #F7F6F3;
+      --white: #FFFFFF;
+      --ink: #111111;
+      --charcoal: #2F3437;
+      --muted: #787774;
+      --border: rgba(0,0,0,0.07);
+      --border-solid: #E5E4E0;
+      --accent: #1C4A2A;
+      --accent-mid: #2D6B40;
+      --accent-pale: #EDF3EC;
+      --accent-text: #1C4A2A;
+      --mono: 'DM Mono', 'SF Mono', monospace;
+      --sans: 'DM Sans', -apple-system, 'Helvetica Neue', sans-serif;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 14px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background-color: var(--bone);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ─── SCROLLBAR ─── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bone); }
+    ::-webkit-scrollbar-thumb { background: var(--border-solid); border-radius: 99px; }
+
+    /* ─── UTILITIES ─── */
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 40px; }
+    @media (max-width: 768px) { .container { padding: 0 20px; } }
+
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.05em;
+      text-transform: uppercase; color: var(--accent-text);
+      background: var(--accent-pale); border: 1px solid rgba(28,74,42,0.15);
+      padding: 4px 10px; border-radius: 4px;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--accent); color: #fff;
+      font-family: var(--sans); font-size: 0.9rem; font-weight: 500;
+      padding: 12px 24px; border-radius: var(--radius-sm);
+      border: none; cursor: pointer; text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn-primary:hover { background: var(--accent-mid); }
+    .btn-primary:active { transform: scale(0.98); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: transparent; color: var(--ink);
+      font-family: var(--sans); font-size: 0.9rem; font-weight: 500;
+      padding: 12px 24px; border-radius: var(--radius-sm);
+      border: 1px solid var(--border-solid); cursor: pointer; text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease;
+      white-space: nowrap;
+    }
+    .btn-ghost:hover { background: rgba(0,0,0,0.04); }
+    .btn-ghost:active { transform: scale(0.98); }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(247,246,243,0.88);
+      backdrop-filter: blur(12px) saturate(180%);
+      -webkit-backdrop-filter: blur(12px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--ink);
+    }
+    .nav-logo-mark {
+      width: 32px; height: 32px;
+      background: var(--accent);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .nav-logo-mark svg { width: 18px; height: 18px; color: #fff; }
+    .nav-logo-text { font-size: 0.95rem; font-weight: 600; letter-spacing: -0.02em; }
+    .nav-logo-sub { font-size: 0.72rem; font-family: var(--mono); color: var(--muted); letter-spacing: 0.03em; }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.88rem; color: var(--muted); text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    .nav-cta { display: flex; gap: 10px; align-items: center; }
+    .nav-phone {
+      font-family: var(--mono); font-size: 0.8rem; color: var(--muted); text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .nav-phone:hover { color: var(--ink); }
+
+    .nav-mobile-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-phone { display: none; }
+      .nav-mobile-toggle { display: block; }
+    }
+    @media (max-width: 640px) {
+      .btn-primary { padding: 10px 18px; font-size: 0.85rem; }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 80px 0 72px;
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .hero-left {}
+
+    .hero-tag { margin-bottom: 24px; }
+
+    .hero-h1 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 700;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .hero-h1 em { font-style: normal; color: var(--accent); }
+
+    .hero-lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 480px;
+      margin-bottom: 36px;
+    }
+
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 48px; }
+
+    .hero-proof {
+      display: flex; gap: 32px; flex-wrap: wrap;
+      padding-top: 36px;
+      border-top: 1px solid var(--border);
+    }
+    .hero-stat {}
+    .hero-stat-num {
+      font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; color: var(--ink);
+      display: block;
+    }
+    .hero-stat-label {
+      font-size: 0.78rem; font-family: var(--mono); color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.04em;
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card-main {
+      background: var(--white);
+      border: 1px solid var(--border-solid);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .hero-card-img {
+      width: 100%; height: 260px; object-fit: cover;
+      background: linear-gradient(135deg, #d4e8d4 0%, #b8d4b8 100%);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-card-img-inner {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 8px;
+    }
+    .hero-card-img svg { width: 64px; height: 64px; opacity: 0.25; color: var(--accent); }
+    .hero-card-img-label {
+      font-family: var(--mono); font-size: 0.7rem; color: var(--accent);
+      opacity: 0.5; text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    /* Decorative grid pattern in hero image */
+    .hero-card-img::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(28,74,42,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(28,74,42,0.06) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .hero-card-body { padding: 20px 24px 24px; }
+    .hero-card-title {
+      font-size: 0.88rem; font-weight: 600; color: var(--ink);
+      margin-bottom: 4px; letter-spacing: -0.01em;
+    }
+    .hero-card-sub {
+      font-size: 0.8rem; color: var(--muted);
+      font-family: var(--mono);
+    }
+
+    .hero-badge {
+      position: absolute;
+      top: -16px; right: 24px;
+      background: var(--white);
+      border: 1px solid var(--border-solid);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-badge-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: #4CAF50;
+      box-shadow: 0 0 0 3px rgba(76,175,80,0.2);
+      animation: pulse-dot 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(76,175,80,0.2); }
+      50% { box-shadow: 0 0 0 5px rgba(76,175,80,0.1); }
+    }
+    .hero-badge-text { font-size: 0.8rem; font-weight: 500; color: var(--ink); }
+    .hero-badge-sub { font-size: 0.72rem; color: var(--muted); font-family: var(--mono); }
+
+    .hero-badge-float {
+      position: absolute;
+      bottom: 24px; left: -20px;
+      background: var(--white);
+      border: 1px solid var(--border-solid);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      display: flex; align-items: center; gap: 10px;
+      animation: float 4s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+    .hero-badge-float-icon {
+      width: 32px; height: 32px; border-radius: var(--radius-sm);
+      background: var(--accent-pale); display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .hero-badge-float-icon svg { width: 16px; height: 16px; color: var(--accent); }
+
+    @media (max-width: 768px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+      .hero-right { display: none; }
+      .hero { padding: 48px 0 56px; }
+    }
+
+    /* ─── TRUST BAR ─── */
+    .trust-bar {
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      background: var(--white);
+    }
+    .trust-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 40px; flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; color: var(--muted); font-weight: 500;
+    }
+    .trust-item svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
+    .trust-divider {
+      width: 1px; height: 20px; background: var(--border-solid);
+    }
+    @media (max-width: 640px) {
+      .trust-divider { display: none; }
+      .trust-inner { gap: 20px; justify-content: flex-start; }
+    }
+
+    /* ─── SECTION HEADER ─── */
+    .section-header { margin-bottom: 56px; }
+    .section-header .tag { margin-bottom: 16px; }
+    .section-h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700; letter-spacing: -0.03em; line-height: 1.15;
+      color: var(--ink); margin-bottom: 16px;
+    }
+    .section-lead {
+      font-size: 1rem; color: var(--muted); line-height: 1.7;
+      max-width: 560px;
+    }
+    .section-header.centered { text-align: center; }
+    .section-header.centered .section-lead { margin: 0 auto; }
+
+    /* ─── SERVICES ─── */
+    .services-section {
+      padding: 96px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border-solid);
+      border: 1px solid var(--border-solid);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 32px 28px;
+      transition: background 0.2s ease;
+    }
+    .service-card:hover { background: #FAFAF9; }
+
+    .service-icon {
+      width: 44px; height: 44px;
+      background: var(--accent-pale);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px;
+    }
+    .service-icon svg { width: 22px; height: 22px; color: var(--accent); }
+
+    .service-title {
+      font-size: 1rem; font-weight: 600; letter-spacing: -0.01em;
+      color: var(--ink); margin-bottom: 8px;
+    }
+    .service-desc {
+      font-size: 0.88rem; color: var(--muted); line-height: 1.65;
+      margin-bottom: 16px;
+    }
+    .service-link {
+      font-size: 0.82rem; color: var(--accent); text-decoration: none;
+      font-weight: 500; display: inline-flex; align-items: center; gap: 4px;
+      transition: gap 0.2s ease;
+    }
+    .service-link:hover { gap: 8px; }
+    .service-link svg { width: 14px; height: 14px; }
+
+    @media (max-width: 900px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    .process-section {
+      padding: 96px 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .process-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .process-left {}
+    .process-steps { margin-top: 48px; display: flex; flex-direction: column; gap: 0; }
+
+    .process-step {
+      display: flex; gap: 20px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      position: relative;
+    }
+    .process-step:last-child { border-bottom: none; }
+    .process-step.active .process-step-body { max-height: 200px; }
+
+    .process-step-num {
+      font-family: var(--mono); font-size: 0.72rem;
+      color: var(--accent); letter-spacing: 0.05em;
+      padding-top: 2px; flex-shrink: 0;
+      width: 32px;
+    }
+
+    .process-step-content { flex: 1; }
+    .process-step-title {
+      font-size: 0.95rem; font-weight: 600; letter-spacing: -0.01em;
+      color: var(--ink); margin-bottom: 0;
+      transition: color 0.2s ease;
+    }
+    .process-step:hover .process-step-title { color: var(--accent); }
+
+    .process-step-body {
+      font-size: 0.85rem; color: var(--muted); line-height: 1.65;
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), margin 0.3s ease;
+      margin-top: 0;
+    }
+    .process-step.active .process-step-body {
+      max-height: 200px; margin-top: 10px;
+    }
+
+    .process-step-toggle {
+      width: 20px; height: 20px; flex-shrink: 0;
+      border: 1px solid var(--border-solid); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      padding-top: 2px;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .process-step.active .process-step-toggle {
+      background: var(--accent); border-color: var(--accent);
+    }
+    .process-step-toggle svg { width: 10px; height: 10px; color: var(--muted); }
+    .process-step.active .process-step-toggle svg { color: #fff; }
+
+    .process-right {}
+    .process-visual {
+      background: var(--bone);
+      border: 1px solid var(--border-solid);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      aspect-ratio: 4/3;
+      display: flex; flex-direction: column; justify-content: space-between;
+      position: sticky; top: 84px;
+    }
+
+    .pv-header {
+      display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .pv-title { font-size: 0.75rem; font-family: var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    .pv-step-indicator {
+      font-family: var(--mono); font-size: 0.72rem;
+      color: var(--accent); background: var(--accent-pale);
+      padding: 3px 8px; border-radius: 4px;
+    }
+
+    .pv-body { flex: 1; display: flex; align-items: center; justify-content: center; padding: 32px 0; }
+    .pv-icon { width: 80px; height: 80px; color: var(--accent); opacity: 0.3; }
+
+    .pv-progress {
+      display: flex; gap: 6px;
+    }
+    .pv-dot {
+      height: 3px; border-radius: 2px;
+      background: var(--border-solid); flex: 1;
+      transition: background 0.3s ease;
+    }
+    .pv-dot.active { background: var(--accent); }
+
+    @media (max-width: 900px) {
+      .process-layout { grid-template-columns: 1fr; gap: 40px; }
+      .process-right { display: none; }
+    }
+
+    /* ─── ABOUT / WHY US ─── */
+    .about-section {
+      padding: 96px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-content {}
+    .about-features { margin-top: 36px; display: flex; flex-direction: column; gap: 20px; }
+    .about-feature {
+      display: flex; gap: 16px; align-items: flex-start;
+    }
+    .about-feature-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: var(--accent-pale); border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-feature-icon svg { width: 18px; height: 18px; color: var(--accent); }
+    .about-feature-title {
+      font-size: 0.92rem; font-weight: 600; color: var(--ink);
+      margin-bottom: 4px; letter-spacing: -0.01em;
+    }
+    .about-feature-desc {
+      font-size: 0.83rem; color: var(--muted); line-height: 1.6;
+    }
+
+    .about-sidebar {}
+    .cert-card {
+      background: var(--white);
+      border: 1px solid var(--border-solid);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 16px;
+    }
+    .cert-card-label {
+      font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--muted); margin-bottom: 16px;
+    }
+    .cert-item {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem; color: var(--ink);
+    }
+    .cert-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cert-item svg { width: 16px; height: 16px; color: var(--accent); flex-shrink: 0; }
+
+    .guarantee-card {
+      background: var(--accent);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      color: #fff;
+    }
+    .guarantee-card-title {
+      font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .guarantee-card-body {
+      font-size: 0.85rem; line-height: 1.6; opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    /* ─── COVERAGE ─── */
+    .coverage-section {
+      padding: 96px 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .coverage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .coverage-map {
+      background: var(--bone);
+      border: 1px solid var(--border-solid);
+      border-radius: var(--radius-lg);
+      aspect-ratio: 1.2;
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .coverage-map::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(28,74,42,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(28,74,42,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+    .coverage-map-inner {
+      position: relative; z-index: 1;
+      text-align: center;
+    }
+    .coverage-map-inner svg { width: 80px; height: 80px; color: var(--accent); opacity: 0.25; }
+    .coverage-map-label {
+      font-family: var(--mono); font-size: 0.72rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-top: 12px;
+    }
+
+    .coverage-content {}
+    .coverage-areas {
+      margin-top: 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      border: 1px solid var(--border-solid); border-radius: var(--radius-md); overflow: hidden;
+    }
+    .coverage-area {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.85rem; color: var(--charcoal);
+      background: var(--bone);
+      transition: background 0.15s ease;
+    }
+    .coverage-area:hover { background: var(--accent-pale); }
+    .coverage-area:nth-child(even) { border-right: none; }
+    .coverage-area svg { width: 13px; height: 13px; color: var(--accent); flex-shrink: 0; }
+    .coverage-note {
+      margin-top: 20px; font-size: 0.82rem; color: var(--muted);
+      font-family: var(--mono);
+    }
+
+    @media (max-width: 768px) {
+      .coverage-grid { grid-template-columns: 1fr; gap: 40px; }
+      .coverage-map { display: none; }
+    }
+
+    /* ─── TESTIMONIALS ─── */
+    .testimonials-section {
+      padding: 96px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--border-solid);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      display: flex; flex-direction: column; justify-content: space-between;
+    }
+
+    .testimonial-stars {
+      display: flex; gap: 3px; margin-bottom: 16px;
+    }
+    .testimonial-stars svg { width: 14px; height: 14px; color: #F59E0B; }
+
+    .testimonial-body {
+      font-size: 0.9rem; color: var(--charcoal); line-height: 1.7;
+      margin-bottom: 20px; flex: 1;
+    }
+    .testimonial-body em { font-style: normal; font-weight: 500; color: var(--ink); }
+
+    .testimonial-author { display: flex; align-items: center; gap: 12px; }
+    .testimonial-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--accent-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 600; color: var(--accent);
+      flex-shrink: 0;
+    }
+    .testimonial-name { font-size: 0.85rem; font-weight: 600; color: var(--ink); }
+    .testimonial-meta { font-size: 0.75rem; color: var(--muted); font-family: var(--mono); }
+
+    @media (max-width: 900px) {
+      .testimonials-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 540px) {
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonials-grid .testimonial-card:nth-child(3) { display: none; }
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      padding: 96px 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cta-inner {
+      background: var(--ink);
+      border-radius: var(--radius-lg);
+      padding: 64px 56px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 48px;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .cta-inner::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(28,74,42,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .cta-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.05em;
+      text-transform: uppercase; color: rgba(255,255,255,0.5);
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+      padding: 4px 10px; border-radius: 4px; margin-bottom: 20px;
+    }
+    .cta-h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700;
+      letter-spacing: -0.03em; line-height: 1.15; color: #fff;
+      margin-bottom: 14px;
+    }
+    .cta-lead { font-size: 0.95rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+    .cta-actions { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; align-items: flex-end; }
+    .btn-cta-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; color: var(--ink);
+      font-family: var(--sans); font-size: 0.9rem; font-weight: 600;
+      padding: 14px 28px; border-radius: var(--radius-sm);
+      border: none; cursor: pointer; text-decoration: none;
+      transition: transform 0.15s ease, opacity 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-cta-primary:hover { opacity: 0.9; }
+    .btn-cta-primary:active { transform: scale(0.97); }
+
+    .cta-phone-link {
+      font-family: var(--mono); font-size: 0.82rem; color: rgba(255,255,255,0.45);
+      text-decoration: none; text-align: center;
+      transition: color 0.2s ease;
+    }
+    .cta-phone-link:hover { color: rgba(255,255,255,0.8); }
+
+    @media (max-width: 768px) {
+      .cta-inner { grid-template-columns: 1fr; padding: 40px 28px; }
+      .cta-actions { align-items: flex-start; }
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      padding: 56px 0 32px;
+      background: var(--bone);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 32px;
+    }
+
+    .footer-brand {}
+    .footer-logo {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 16px; text-decoration: none; color: var(--ink);
+    }
+    .footer-logo-mark {
+      width: 28px; height: 28px; background: var(--accent);
+      border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;
+    }
+    .footer-logo-mark svg { width: 16px; height: 16px; color: #fff; }
+    .footer-logo-text { font-size: 0.9rem; font-weight: 600; letter-spacing: -0.02em; }
+    .footer-tagline { font-size: 0.83rem; color: var(--muted); line-height: 1.6; max-width: 220px; margin-bottom: 20px; }
+    .footer-contact-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.82rem; color: var(--muted); margin-bottom: 8px;
+    }
+    .footer-contact-item svg { width: 14px; height: 14px; color: var(--accent); flex-shrink: 0; }
+    .footer-contact-item a { color: var(--muted); text-decoration: none; }
+    .footer-contact-item a:hover { color: var(--ink); }
+
+    .footer-col-title {
+      font-size: 0.78rem; font-family: var(--mono); text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--ink); font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 0.85rem; color: var(--muted); text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-links a:hover { color: var(--ink); }
+
+    .footer-bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-legal { font-size: 0.78rem; color: var(--muted); font-family: var(--mono); }
+    .footer-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .footer-badge {
+      font-size: 0.7rem; font-family: var(--mono); text-transform: uppercase;
+      letter-spacing: 0.04em; color: var(--muted);
+      border: 1px solid var(--border-solid); padding: 3px 8px; border-radius: 3px;
+    }
+
+    @media (max-width: 900px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+    @media (max-width: 540px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── REVEAL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 80ms; }
+    .reveal-delay-2 { transition-delay: 160ms; }
+    .reveal-delay-3 { transition-delay: 240ms; }
+    .reveal-delay-4 { transition-delay: 320ms; }
+    .reveal-delay-5 { transition-delay: 400ms; }
+    .reveal-delay-6 { transition-delay: 480ms; }
+  </style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <div class="nav-logo-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <path d="M8 12h8M12 8v8"/>
+          </svg>
+        </div>
+        <div>
+          <div class="nav-logo-text">Caldwell</div>
+          <div class="nav-logo-sub">Pest Control</div>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">How It Works</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#coverage">Coverage</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+      </ul>
+
+      <div class="nav-cta">
+        <a href="tel:+16045550182" class="nav-phone">(604) 555-0182</a>
+        <a href="#contact" class="btn-primary">
+          Free Inspection
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <button class="nav-mobile-toggle" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="hero-tag reveal">
+          <span class="tag">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="5"/></svg>
+            Serving Greater Vancouver
+          </span>
+        </div>
+
+        <h1 class="hero-h1 reveal reveal-delay-1">
+          Pest control that<br/>
+          <em>actually works</em><br/>
+          in Vancouver.
+        </h1>
+
+        <p class="hero-lead reveal reveal-delay-2">
+          Caldwell is a licensed pest control company serving Vancouver, Burnaby, Richmond, and the North Shore. We handle everything from rodents to bed bugs — with guaranteed results and zero mess.
+        </p>
+
+        <div class="hero-actions reveal reveal-delay-3">
+          <a href="tel:+16045550182" class="btn-primary">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.12 2.22 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+            Call (604) 555-0182
+          </a>
+          <a href="#services" class="btn-ghost">View Services</a>
+        </div>
+
+        <div class="hero-proof reveal reveal-delay-4">
+          <div class="hero-stat">
+            <span class="hero-stat-num">4,800+</span>
+            <span class="hero-stat-label">Homes treated</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">98%</span>
+            <span class="hero-stat-label">Success rate</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num">12 yr</span>
+            <span class="hero-stat-label">In Vancouver</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right reveal reveal-delay-2">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          <div>
+            <div class="hero-badge-text">Available today</div>
+            <div class="hero-badge-sub">Same-day bookings open</div>
+          </div>
+        </div>
+
+        <div class="hero-card-main">
+          <div class="hero-card-img">
+            <div class="hero-card-img-inner">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+              <span class="hero-card-img-label">Residential · Commercial</span>
+            </div>
+          </div>
+          <div class="hero-card-body">
+            <div class="hero-card-title">Licensed &amp; insured in BC</div>
+            <div class="hero-card-sub">BPCPA Reg. #2024-VAN-0341</div>
+          </div>
+        </div>
+
+        <div class="hero-badge-float">
+          <div class="hero-badge-float-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div>
+            <div class="hero-badge-text">30-day guarantee</div>
+            <div class="hero-badge-sub">Free re-treatment if needed</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── TRUST BAR ─── -->
+<div class="trust-bar">
+  <div class="container">
+    <div class="trust-inner">
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        Licensed by BC BPCPA
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        $2M liability coverage
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Same-day service available
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.75l6 6 9-13.5"/></svg>
+        Eco-safe treatments
+      </div>
+      <div class="trust-divider"></div>
+      <div class="trust-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Greater Vancouver
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ─── SERVICES ─── -->
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="tag">Services</span>
+      <h2 class="section-h2">Every pest, handled.</h2>
+      <p class="section-lead">From a single mouse to a full-building infestation, Caldwell has the tools and experience to resolve it — and keep it from coming back.</p>
+    </div>
+
+    <div class="services-grid">
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3c0 0 1 1 1 4s-1 3-1 5a4 4 0 008 0c0-2-1-3-1-5s1-4 1-4"/>
+            <path d="M21 3c0 0-1 1-1 4s1 3 1 5a4 4 0 01-8 0c0-2 1-3 1-5s-1-4-1-4"/>
+            <line x1="12" y1="22" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <div class="service-title">Rodent Control</div>
+        <p class="service-desc">Mice and rats removed with integrated trapping programs and structural exclusion. We seal entry points to prevent re-entry.</p>
+        <a href="#contact" class="service-link">
+          Book inspection
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a5 5 0 015 5v3H7V7a5 5 0 015-5z"/>
+            <path d="M7 10H5a3 3 0 000 6h2M17 10h2a3 3 0 010 6h-2"/>
+            <rect x="7" y="10" width="10" height="8" rx="1"/>
+            <line x1="9" y1="18" x2="9" y2="22"/><line x1="15" y1="18" x2="15" y2="22"/>
+          </svg>
+        </div>
+        <div class="service-title">Bed Bug Elimination</div>
+        <p class="service-desc">Heat treatment and targeted pesticide applications that eliminate bed bugs at all life stages — eggs included.</p>
+        <a href="#contact" class="service-link">
+          Book inspection
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <div class="service-title">Wasps &amp; Hornets</div>
+        <p class="service-desc">Safe removal of active nests from eaves, attics, and underground colonies. Full protective gear, no risk to your household.</p>
+        <a href="#contact" class="service-link">
+          Book inspection
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="service-card reveal">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/>
+          </svg>
+        </div>
+        <div class="service-title">Ant &amp; Cockroach</div>
+        <p class="service-desc">Colony elimination using gel baits and perimeter treatments. Targets the nest, not just the visible workers.</p>
+        <a href="#contact" class="service-link">
+          Book inspection
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+        </div>
+        <div class="service-title">Crawl Space &amp; Attic</div>
+        <p class="service-desc">Insulation inspection, rodent cleanup, re-insulation, and barrier installation in crawl spaces and attic areas.</p>
+        <a href="#contact" class="service-link">
+          Book inspection
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div class="service-title">Commercial Programs</div>
+        <p class="service-desc">Monthly and quarterly service plans for restaurants, hotels, strata buildings, and office complexes. Full documentation for health inspections.</p>
+        <a href="#contact" class="service-link">
+          Get a quote
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── PROCESS ─── -->
+<section class="process-section" id="process">
+  <div class="container">
+    <div class="process-layout">
+      <div class="process-left">
+        <div class="section-header reveal">
+          <span class="tag">Process</span>
+          <h2 class="section-h2">From call to clear<br/>in four steps.</h2>
+          <p class="section-lead">No guesswork. No upsells. A clear, documented process every time.</p>
+        </div>
+
+        <div class="process-steps reveal reveal-delay-1" id="processSteps">
+
+          <div class="process-step active" data-step="0">
+            <div class="process-step-num">01</div>
+            <div class="process-step-content">
+              <div class="process-step-title">Free Inspection</div>
+              <div class="process-step-body">A licensed technician visits your property, identifies the pest species, assesses the severity, and locates entry points. No charge, no obligation.</div>
+            </div>
+            <div class="process-step-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+
+          <div class="process-step" data-step="1">
+            <div class="process-step-num">02</div>
+            <div class="process-step-content">
+              <div class="process-step-title">Custom Treatment Plan</div>
+              <div class="process-step-body">We prepare a written treatment plan specific to your property, pest type, and risk level. You approve it before we start — no surprises on billing.</div>
+            </div>
+            <div class="process-step-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+
+          <div class="process-step" data-step="2">
+            <div class="process-step-num">03</div>
+            <div class="process-step-content">
+              <div class="process-step-title">Treatment &amp; Exclusion</div>
+              <div class="process-step-body">We apply targeted, eco-safe treatments and seal structural entry points. Most residential jobs are completed in a single visit, with no displacement required.</div>
+            </div>
+            <div class="process-step-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+
+          <div class="process-step" data-step="3">
+            <div class="process-step-num">04</div>
+            <div class="process-step-content">
+              <div class="process-step-title">30-Day Follow-Up</div>
+              <div class="process-step-body">We return within 30 days to verify the treatment held. If activity is detected, we re-treat at no extra cost. You receive a clearance report for your records.</div>
+            </div>
+            <div class="process-step-toggle">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="process-right reveal reveal-delay-3">
+        <div class="process-visual" id="processVisual">
+          <div class="pv-header">
+            <span class="pv-title">Current step</span>
+            <span class="pv-step-indicator" id="pvStepLabel">STEP 01 / 04</span>
+          </div>
+          <div class="pv-body">
+            <svg class="pv-icon" id="pvIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>
+            </svg>
+          </div>
+          <div class="pv-progress">
+            <div class="pv-dot active" data-dot="0"></div>
+            <div class="pv-dot" data-dot="1"></div>
+            <div class="pv-dot" data-dot="2"></div>
+            <div class="pv-dot" data-dot="3"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── ABOUT ─── -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content">
+        <div class="section-header reveal">
+          <span class="tag">About Caldwell</span>
+          <h2 class="section-h2">Local knowledge.<br/>Proven methods.</h2>
+          <p class="section-lead">Caldwell Pest Control has been operating in Greater Vancouver since 2012. We understand how BC's wet climate, older housing stock, and dense urban areas create specific pest challenges that out-of-province operators often miss.</p>
+        </div>
+
+        <div class="about-features">
+          <div class="about-feature reveal reveal-delay-1">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div>
+              <div class="about-feature-title">IPM Certified Technicians</div>
+              <p class="about-feature-desc">All Caldwell technicians hold Integrated Pest Management certification and complete annual training on BC-specific pest species and regulations.</p>
+            </div>
+          </div>
+          <div class="about-feature reveal reveal-delay-2">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 9.5V5.5a1 1 0 011-1h13a1 1 0 011 1v4M4.5 9.5h15M4.5 9.5v9a1 1 0 001 1h13a1 1 0 001-1v-9"/><line x1="10" y1="13" x2="10" y2="17"/><line x1="14" y1="13" x2="14" y2="17"/></svg>
+            </div>
+            <div>
+              <div class="about-feature-title">Eco-Safe Product Selection</div>
+              <p class="about-feature-desc">We use Health Canada-registered pesticides with low mammalian toxicity and fast environmental breakdown. Safe for children, pets, and pollinators when applied correctly.</p>
+            </div>
+          </div>
+          <div class="about-feature reveal reveal-delay-3">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div>
+              <div class="about-feature-title">Full Reporting &amp; Documentation</div>
+              <p class="about-feature-desc">Every visit is logged and emailed to you — useful for strata requirements, property sales, and restaurant health inspections.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-sidebar reveal reveal-delay-2">
+        <div class="cert-card">
+          <div class="cert-card-label">Credentials &amp; Memberships</div>
+          <div class="cert-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.75l6 6 9-13.5"/></svg>
+            BC Pesticide Control Act Licensed
+          </div>
+          <div class="cert-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.75l6 6 9-13.5"/></svg>
+            NPMA Member — Category A
+          </div>
+          <div class="cert-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.75l6 6 9-13.5"/></svg>
+            BPCA Certified Technicians
+          </div>
+          <div class="cert-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.75l6 6 9-13.5"/></svg>
+            Health Canada PCP Compliance
+          </div>
+          <div class="cert-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.75l6 6 9-13.5"/></svg>
+            WorkSafeBC Registered
+          </div>
+        </div>
+
+        <div class="guarantee-card">
+          <div class="guarantee-card-title">30-Day Guarantee</div>
+          <p class="guarantee-card-body">If pest activity returns within 30 days of treatment, we come back and re-treat at no cost. No questions, no paperwork.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── COVERAGE ─── -->
+<section class="coverage-section" id="coverage">
+  <div class="container">
+    <div class="coverage-grid">
+      <div class="coverage-map reveal">
+        <div class="coverage-map-inner">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <div class="coverage-map-label">Greater Vancouver Region</div>
+        </div>
+      </div>
+
+      <div class="coverage-content">
+        <div class="section-header reveal">
+          <span class="tag">Coverage Area</span>
+          <h2 class="section-h2">We cover all of<br/>Greater Vancouver.</h2>
+          <p class="section-lead">Caldwell technicians are dispatched daily across the Lower Mainland. Most areas receive same-day or next-morning service.</p>
+        </div>
+
+        <div class="coverage-areas reveal reveal-delay-1">
+          <div class="coverage-area"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Vancouver</div>
+          <div class="coverage-area"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Burnaby</div>
+          <div class="coverage-area"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Richmond</div>
+          <div class="coverage-area"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> North Vancouver</div>
+          <div class="coverage-area"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> West Vancouver</div>
+          <div class="coverage-area"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Surrey</div>
+          <div class="coverage-area"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Coquitlam</div>
+          <div class="coverage-area"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Port Moody</div>
+          <div class="coverage-area"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> New Westminster</div>
+          <div class="coverage-area"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Delta</div>
+          <div class="coverage-area"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Langley</div>
+          <div class="coverage-area"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> White Rock</div>
+        </div>
+
+        <p class="coverage-note reveal reveal-delay-2">Not sure if we cover your area? Call (604) 555-0182 — we'll confirm in seconds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── TESTIMONIALS ─── -->
+<section class="testimonials-section" id="reviews">
+  <div class="container">
+    <div class="section-header centered reveal">
+      <span class="tag">Reviews</span>
+      <h2 class="section-h2">Trusted across the Lower Mainland.</h2>
+      <p class="section-lead">Over 4,800 households and businesses have used Caldwell. Here is what a few of them had to say.</p>
+    </div>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card reveal">
+        <div>
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-body">We had mice in our crawl space for months. Two other companies came and went — the problem kept coming back. <em>Caldwell found the entry points nobody else had sealed</em> and we have been clear for eight months now.</p>
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MK</div>
+          <div>
+            <div class="testimonial-name">Margaret K.</div>
+            <div class="testimonial-meta">Homeowner · Kerrisdale</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-1">
+        <div>
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-body">As a restaurant owner, health inspections are serious. Caldwell set up a quarterly program, <em>provides written logs after every visit</em>, and has never missed an appointment in three years. That is exactly what I need.</p>
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DT</div>
+          <div>
+            <div class="testimonial-name">David T.</div>
+            <div class="testimonial-meta">Restaurant Owner · Mount Pleasant</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-2">
+        <div>
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <p class="testimonial-body">Bed bugs in a rental suite are a nightmare. Caldwell came same-day, <em>explained every step clearly</em>, and the tenants were back in the suite the next morning. No drama, no extra charges.</p>
+        </div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">PL</div>
+          <div>
+            <div class="testimonial-name">Patricia L.</div>
+            <div class="testimonial-meta">Property Manager · Burnaby</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── CTA ─── -->
+<section class="cta-section" id="contact">
+  <div class="container">
+    <div class="cta-inner">
+      <div>
+        <div class="cta-tag">Free inspection — no obligation</div>
+        <h2 class="cta-h2">Ready to be pest-free?</h2>
+        <p class="cta-lead">Call now or request an inspection online. A Caldwell technician will confirm your booking within 30 minutes during business hours.</p>
+      </div>
+      <div class="cta-actions">
+        <a href="tel:+16045550182" class="btn-cta-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.12 2.22 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          Call (604) 555-0182
+        </a>
+        <a href="mailto:hello@caldwellpest.ca" class="cta-phone-link">or email hello@caldwellpest.ca</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo">
+          <div class="footer-logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+              <path d="M8 12h8M12 8v8"/>
+            </svg>
+          </div>
+          <span class="footer-logo-text">Caldwell Pest Control</span>
+        </a>
+        <p class="footer-tagline">Serving Greater Vancouver since 2012. Licensed, insured, and guaranteed.</p>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.12 2.22 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <a href="tel:+16045550182">(604) 555-0182</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:hello@caldwellpest.ca">hello@caldwellpest.ca</a>
+        </div>
+        <div class="footer-contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Vancouver, BC</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">Rodent Control</a></li>
+          <li><a href="#services">Bed Bug Treatment</a></li>
+          <li><a href="#services">Wasps &amp; Hornets</a></li>
+          <li><a href="#services">Ants &amp; Cockroaches</a></li>
+          <li><a href="#services">Crawl Space</a></li>
+          <li><a href="#services">Commercial Programs</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Areas</div>
+        <ul class="footer-links">
+          <li><a href="#coverage">Vancouver</a></li>
+          <li><a href="#coverage">Burnaby</a></li>
+          <li><a href="#coverage">Richmond</a></li>
+          <li><a href="#coverage">North Shore</a></li>
+          <li><a href="#coverage">Surrey</a></li>
+          <li><a href="#coverage">Coquitlam</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Caldwell</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#contact">Get a Quote</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span class="footer-legal">© 2024 Caldwell Pest Control Ltd. Vancouver, BC — BPCPA Reg. #2024-VAN-0341</span>
+      <div class="footer-badges">
+        <span class="footer-badge">Licensed</span>
+        <span class="footer-badge">Insured</span>
+        <span class="footer-badge">BC Registered</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+  // ─── REVEAL ON SCROLL ───
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  revealEls.forEach(el => observer.observe(el));
+
+  // Trigger hero elements immediately
+  document.querySelectorAll('.hero .reveal').forEach(el => {
+    setTimeout(() => el.classList.add('visible'), 100);
+  });
+
+  // ─── PROCESS ACCORDION ───
+  const steps = document.querySelectorAll('.process-step');
+  const dots = document.querySelectorAll('.pv-dot');
+  const stepLabel = document.getElementById('pvStepLabel');
+
+  const stepIcons = [
+    `<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/>`,
+    `<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>`,
+    `<polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>`,
+    `<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>`
+  ];
+
+  function setActiveStep(idx) {
+    steps.forEach((s, i) => s.classList.toggle('active', i === idx));
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    if (stepLabel) stepLabel.textContent = `STEP 0${idx + 1} / 04`;
+    const pvIcon = document.getElementById('pvIcon');
+    if (pvIcon) pvIcon.innerHTML = stepIcons[idx];
+  }
+
+  steps.forEach((step, i) => {
+    step.addEventListener('click', () => setActiveStep(i));
+  });
+
+  // Auto-advance process steps
+  let currentStep = 0;
+  setInterval(() => {
+    currentStep = (currentStep + 1) % 4;
+    setActiveStep(currentStep);
+  }, 3200);
+</script>
+
+</body>
+</html>
